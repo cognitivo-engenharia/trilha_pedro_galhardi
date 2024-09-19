@@ -1,2 +1,2 @@
 # Terraform
-### Criando o primeiro recurso com Terraform
+### Repositório dedicado ao aprendizado do Terraform
