@@ -1,0 +1,10 @@
+ami                         = "ami-0aa7d40eeae50c9a9"
+instance_type               = "t2.medium" 
+key_name                    = "terraform-airbyte"
+subnet_private              = "<your-subnet>"
+security_group             = "<your-security-group>"
+ebs_device_name             = "/dev/xvda"
+volume_size                 = "8" 
+delete_on_termination       = false
+associate_public_ip_address = true
+instance_name               = "airbyte-instance"
