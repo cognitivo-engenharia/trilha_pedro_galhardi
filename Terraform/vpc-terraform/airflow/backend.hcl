@@ -1,0 +1,4 @@
+    bucket  = "primarily-solely-constantly-massive-amoeba-dev"
+    key     = "terraform.tfstate"
+    region  = "us-east-1"
+    profile = "default"
