@@ -11,7 +11,7 @@ terraform {
   }
   backend "s3" {
     bucket  = "primarily-solely-constantly-massive-amoeba-dev"
-    key     = "dev/vpc/terraform.tfstate"
+    key     = "vpc/terraform.tfstate"
     region  = "us-east-1"
     profile = "default"
   }
@@ -22,11 +22,6 @@ provider "aws" {
   profile = var.aws_profile
 }
 
-resource "aws_iam_role_policy_attachment" "s3_access" {
-  policy_arn = aws_iam_policy.s3_policy.arn
-  role       = aws_iam_role.ec2_role.name
-}
-
 resource "aws_instance" "airbyte" {
   ami                    = var.ami
   instance_type          = var.instance_type
@@ -34,8 +29,6 @@ resource "aws_instance" "airbyte" {
   vpc_security_group_ids = [data.terraform_remote_state.vpc.outputs.security_group_id]
 
   associate_public_ip_address = true
-
-  iam_instance_profile = aws_iam_role.ec2_role.name
 
   tags = {
     Name = "airbyte"

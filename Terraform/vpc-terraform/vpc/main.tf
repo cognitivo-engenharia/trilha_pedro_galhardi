@@ -1,7 +1,7 @@
 terraform {
 
-  required_providers {
 
+  required_providers {
     aws = {
       source  = "hashicorp/aws"
       version = "3.7"
@@ -10,6 +10,12 @@ terraform {
       source  = "hashicorp/random"
       version = "3.6.3"
     }
+  }
+    backend "s3" {
+    bucket  = "primarily-solely-constantly-massive-amoeba-dev"
+    key     = "dev/vpc/terraform.tfstate"
+    region  = "us-east-1"
+    profile = "default"
   }
 }
 
