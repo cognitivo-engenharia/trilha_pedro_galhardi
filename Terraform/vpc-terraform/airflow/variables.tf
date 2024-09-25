@@ -7,3 +7,12 @@ variable "aws_profile" {
   default = "default"
   
 }
+variable "ami" {
+  type    = string
+  default = "ami-0a0e5d9c7acc336f1"
+}
+
+variable "instance_type" {
+  type    = string
+  default = "t2.small"
+}

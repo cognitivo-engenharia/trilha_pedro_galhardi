@@ -9,9 +9,9 @@ terraform {
       version = "3.6.3"
     }
   }
-  backend "s3" {
-    bucket  = "primarily-solely-constantly-massive-amoeba-dev"
-    key     = "vpc/terraform.tfstate"
+    backend "s3" {
+    bucket  = "repeatedly-urgently-mentally-charmed-clam"
+    key     = "vpc/airbyte/terraform.tfstate"
     region  = "us-east-1"
     profile = "default"
   }
@@ -35,17 +35,4 @@ resource "aws_instance" "airbyte" {
   tags = {
     Name = "airbyte"
   }
-
-  user_data = <<-EOF
-    #!/bin/bash
-    sudo yum update -y
-    sudo yum install -y docker
-    sudo systemctl enable docker
-    sudo systemctl start docker
-    sudo usermod -aG docker ec2-user
-    newgrp docker
-    mkdir /airbyte && cd /airbyte
-    wget https://raw.githubusercontent.com/airbytehq/airbyte/master/docker-compose.yaml
-    docker-compose up -d
-    EOF
 }

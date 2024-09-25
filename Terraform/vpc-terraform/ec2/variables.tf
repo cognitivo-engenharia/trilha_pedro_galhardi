@@ -17,12 +17,3 @@ variable "instance_type" {
   type    = string
   default = "t2.medium"
 }
-
-variable "subnet_id" {
-  type = string
-}
-
-variable "security_group" {
-  type = string
-}
-
